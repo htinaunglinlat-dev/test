@@ -39,6 +39,7 @@ const NavBar = () => {
           <NavList to="/" content="Home" />
           <NavList to="/counter" content="Counter" />
           <NavList to="/products" content="products" />
+          <NavList to="/productIntersectionObserver" content="productsIO" />
         </ul>
       </div>
     </nav>

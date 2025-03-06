@@ -9,7 +9,7 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async() 
     if(!response.ok) {
       throw new Error("failed to fetch the product: Custom Error")
     }
-    const data = await response.json()
+    const data: ProductType[] = await response.json()
     return data 
   } catch (error) {
     let errorMessage = ''
@@ -25,7 +25,7 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async() 
 interface ProductState {
   isLoading: boolean,
   errorMessage: null | string,
-  productLists: [] | ProductType[]
+  productLists: ProductType[]
 }
 
 // Define the initial state using that type

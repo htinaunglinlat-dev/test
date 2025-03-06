@@ -7,3 +7,7 @@ body{
 .active{
   @apply text-white font-bold underline
 }
+
+.active-box {
+  @apply scale-100 opacity-100
+}
