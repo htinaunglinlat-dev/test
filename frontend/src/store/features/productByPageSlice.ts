@@ -26,6 +26,7 @@ export const fetchProductsByPage = createAsyncThunk<FetchProductsByPageReturnTyp
   const {page} = arg
   const perPageItem = arg.perPageItem || 8
   try{
+    await new Promise((resolve) => setTimeout(resolve, 2000))
     const response = await fetch(`http://localhost:3000/products?_page=${page}&_per_page=${perPageItem}`)
     if(!response.ok) throw new Error("failed to fetch the product: Custom Error")
     const data: FetchProductsByPageResponseData = await response.json()
@@ -64,7 +65,9 @@ const productByPageSlice = createSlice({
   name: 'productByPage',
   initialState,
   reducers: {
-
+    reset: (state) => {
+      state.productLists = []
+    }
   },
   extraReducers: builder => {
     builder
@@ -88,3 +91,4 @@ const productByPageSlice = createSlice({
 })
 
 export default productByPageSlice.reducer
+export const {reset} = productByPageSlice.actions

@@ -41,7 +41,7 @@ export default function ProductObserver () {
   useEffect(() => {
     const observer = useObserverAnimation(ref.current)
     console.log(ref.current)
-    // return () => observer.disconnect()
+    return () => observer.disconnect()
   }, [currentPage]) 
 
   const renderContent = () => {
@@ -51,7 +51,7 @@ export default function ProductObserver () {
     if (errorMessage) {
       return <h1 className="text-red-500 font-bold">Error: {errorMessage}</h1>;
     }
-    return productLists.map((product, index) => <ForwardRefProductCard ref={(el: HTMLDivElement) => ref.current[index] = el} key={index + 1} {...product} keyId={index +1} />);
+    return productLists.map((product, index) => <ForwardRefProductCard ref={(el: HTMLDivElement) => { ref.current[index] = el; }} key={index + 1} {...product} keyId={index +1} />);
   };
   
   return (

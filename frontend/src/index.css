@@ -5,9 +5,36 @@ body{
 }
 
 .active{
-  @apply text-white font-bold underline
+  @apply font-bold bg-blue-600 border-2 border-slate-300
 }
 
 .active-box {
   @apply scale-100 opacity-100
+}
+
+.textAnimationBox{
+  background-image: url('./assets/banner.png');
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  animation: myani 10s ease infinite alternate-reverse;
+}
+.textAnimationBox h1{
+  color: transparent;
+  font-size: 100px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  -webkit-text-stroke: 2px deeppink;
+
+  white-space: nowrap;
+}
+
+@keyframes myani{
+  from{					/*left top*/
+    background-position: 0 0;
+  }
+  to{
+    background-position: 0 800px;
+  }
 }

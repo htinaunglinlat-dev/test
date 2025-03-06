@@ -39,9 +39,6 @@ export const LoadingProductCard = () => {
 const ProductCard: React.FC<ProductType> = ({ title, price, image, rating, category }) => {
   return (
     <motion.div className="max-w-[400px] w-full bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300"
-    initial={{opacity: 0, y: 20}}
-    animate={{opacity: 1, y: 0}}
-    transition={{duration: 0.8}}
     >
       <motion.img src={image} alt={title} className="h-60 object-contain w-11/12 mx-auto" 
         initial={{opacity: 0, y: 10}}
@@ -69,7 +66,7 @@ const ProductCard: React.FC<ProductType> = ({ title, price, image, rating, categ
   );
 };
 
-export const ForwardRefProductCard: React.FC<ProductType & {ref: Ref<HTMLDivElement>, keyId: number}> = ({ id, title, price, image, rating, category, keyId ,ref = null }) => {
+export const ForwardRefProductCard: React.FC<ProductType & {ref: Ref<HTMLDivElement> , keyId: number}> = ({ id, title, price, image, rating, category, keyId ,ref = null }) => {
   console.log('keyId', keyId)
   return (
     <div id={String(keyId)} ref={ref} className="max-w-[400px] w-full bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
