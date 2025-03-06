@@ -15,6 +15,7 @@
 
 ## Technology Used
 [1] **tailwindcss** - for css library for frontend
+[2] **TypeScript** - for type safe development
 
 ## Pages
 Home Page -> show welcome content
